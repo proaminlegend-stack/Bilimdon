@@ -1,0 +1,12 @@
+{
+  "name": "bilimdon",
+  "version": "3.0.0",
+  "description": "Bilimdon - o'zbek tilidagi viktorina o'yini",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
