@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bilimdon</title>
+  <meta name="theme-color" content="#4f46e5">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +17,8 @@
     <section id="start-screen">
       <h1>Bilimdon</h1>
       <p>Ismingizni yozing va kategoriyani tanlang. Har savolga 15 soniya beriladi.</p>
+      <div id="avatar-preview" class="avatar-big">🦁</div>
+      <div id="avatars" class="avatars"></div>
       <input id="player-name" type="text" maxlength="20" placeholder="Ismingiz" autocomplete="off">
       <div id="categories"></div>
       <button id="show-board" class="link-btn">Bugungi reyting</button>

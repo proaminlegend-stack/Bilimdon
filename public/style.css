@@ -152,3 +152,22 @@ h3 { margin: 8px 0 10px; color: #111827; }
 .tab.active { background: #4f46e5; color: #fff; }
 
 .hidden { display: none; }
+
+/* Avatarlar */
+.avatar-big {
+  width: 84px; height: 84px; margin: 0 auto 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 46px; border-radius: 50%;
+  background: #eef2ff; border: 3px solid #4f46e5;
+}
+.avatars {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 8px; margin-bottom: 14px;
+}
+.av-btn {
+  aspect-ratio: 1; font-size: 24px; line-height: 1;
+  border: 2px solid #e5e7eb; border-radius: 12px;
+  background: #f9fafb; cursor: pointer;
+}
+.av-btn.active { border-color: #4f46e5; background: #eef2ff; transform: scale(1.08); }
+.board .av { margin-right: 6px; font-size: 1.15em; }

@@ -36,17 +36,19 @@ async function dbInit() {
     "id SERIAL PRIMARY KEY, " +
     "name TEXT NOT NULL, " +
     "category TEXT NOT NULL, " +
+    "avatar TEXT NOT NULL DEFAULT '', " +
     "score INT NOT NULL, " +
     "total INT NOT NULL, " +
     "created_at TIMESTAMPTZ NOT NULL DEFAULT now())"
   );
+  await pool.query("ALTER TABLE scores ADD COLUMN IF NOT EXISTS avatar TEXT NOT NULL DEFAULT ''");
 }
 
 async function dbTop10(category) {
   const today = "(created_at AT TIME ZONE 'Asia/Tashkent')::date = " +
                 "(now() AT TIME ZONE 'Asia/Tashkent')::date";
   const order = "ORDER BY score::float / total DESC, total DESC, created_at ASC LIMIT 10";
-  const cols = "SELECT name, category, score, total FROM scores";
+  const cols = "SELECT name, avatar, category, score, total FROM scores";
 
   const result = category
     ? await pool.query(cols + " WHERE category = $1 AND " + today + " " + order, [category])
@@ -54,10 +56,10 @@ async function dbTop10(category) {
   return result.rows;
 }
 
-async function dbAdd(name, category, score, total) {
+async function dbAdd(name, avatar, category, score, total) {
   await pool.query(
-    "INSERT INTO scores (name, category, score, total) VALUES ($1, $2, $3, $4)",
-    [name, category, score, total]
+    "INSERT INTO scores (name, avatar, category, score, total) VALUES ($1, $2, $3, $4, $5)",
+    [name, avatar, category, score, total]
   );
   // 7 kundan eski natijalarni tozalash
   await pool.query("DELETE FROM scores WHERE created_at < now() - interval '7 days'");
@@ -104,7 +106,7 @@ function fileTop10(category) {
     list = list.filter(s => s.category === category);
   }
   return list.slice(0, 10).map(s => ({
-    name: s.name, category: s.category, score: s.score, total: s.total
+    name: s.name, avatar: s.avatar || "", category: s.category, score: s.score, total: s.total
   }));
 }
 
@@ -113,11 +115,11 @@ async function getTop10(category) {
   return pool ? dbTop10(category) : fileTop10(category);
 }
 
-async function addScore(name, category, score, total) {
+async function addScore(name, avatar, category, score, total) {
   if (pool) {
-    await dbAdd(name, category, score, total);
+    await dbAdd(name, avatar, category, score, total);
   } else {
-    scores.push({ name, category, score, total, time: Date.now() });
+    scores.push({ name, avatar, category, score, total, time: Date.now() });
     prune();
     save();
   }
@@ -138,6 +140,7 @@ app.post("/api/scores", async (req, res) => {
   const body = req.body || {};
   const name = String(body.name || "Mehmon").trim().slice(0, 20) || "Mehmon";
   const category = String(body.category || "Aralash").trim().slice(0, 20);
+  const avatar = Array.from(String(body.avatar || "")).slice(0, 2).join("");
   const score = Number(body.score);
   const total = Number(body.total);
 
@@ -147,7 +150,7 @@ app.post("/api/scores", async (req, res) => {
   }
 
   try {
-    await addScore(name, category, score, total);
+    await addScore(name, avatar, category, score, total);
     res.json(await getTop10(category));
   } catch (e) {
     console.error("Yozishda xato:", e.message);
