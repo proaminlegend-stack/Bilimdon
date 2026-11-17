@@ -308,3 +308,8 @@ nextBtn.addEventListener("click", nextQuestion);
 
 buildMenu();
 buildAvatars();
+
+// Ilova sifatida o'rnatish uchun
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+}
