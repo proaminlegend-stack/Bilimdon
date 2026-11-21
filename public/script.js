@@ -34,31 +34,6 @@ let timerId = null;
 let playerName = "Mehmon";
 let playerCategory = "Aralash";
 let boardPeriod = "day";
-const AVATARS = ["🦁","🐯","🐼","🦊","🐺","🦅","🐬","🐲","🚀","⚡","👑","🧠","🎯","🔥","🌟","🤖","🐱","🐶"];
-let playerAvatar = AVATARS[0];
-try {
-  const sv = localStorage.getItem("bilimdon-avatar");
-  if (AVATARS.includes(sv)) playerAvatar = sv;
-} catch (e) {}
-
-function buildAvatars() {
-  const box = document.getElementById("avatars");
-  const prev = document.getElementById("avatar-preview");
-  prev.textContent = playerAvatar;
-  box.innerHTML = "";
-  AVATARS.forEach(a => {
-    const b = document.createElement("button");
-    b.className = "av-btn" + (a === playerAvatar ? " active" : "");
-    b.textContent = a;
-    b.addEventListener("click", () => {
-      playerAvatar = a;
-      try { localStorage.setItem("bilimdon-avatar", a); } catch (e) {}
-      buildAvatars();
-    });
-    box.appendChild(b);
-  });
-}
-
 // Oxirgi kiritilgan ismni eslab qolish
 try {
   nameInput.value = localStorage.getItem("bilimdon-name") || "";
@@ -229,7 +204,7 @@ function renderBoard(el, list) {
     const li = document.createElement("li");
     const left = document.createElement("span");
     const right = document.createElement("span");
-    left.textContent = (i + 1) + ". " + (item.avatar ? item.avatar + " " : "") + item.name;
+    left.textContent = (i + 1) + ". " + (i === 0 ? "👑 " : "") + item.name;
     right.textContent = item.score + "/" + item.total + " (" + item.category + ")";
     li.appendChild(left);
     li.appendChild(right);
@@ -294,7 +269,6 @@ async function sendScore() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: playerName,
-        avatar: playerAvatar,
         category: playerCategory,
         score: score,
         total: quiz.length
@@ -326,7 +300,6 @@ document.getElementById("show-board").addEventListener("click", openBoard);
 nextBtn.addEventListener("click", nextQuestion);
 
 buildMenu();
-buildAvatars();
 
 // Ilova sifatida o'rnatish uchun
 if ("serviceWorker" in navigator) {
