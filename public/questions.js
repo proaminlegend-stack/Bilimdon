@@ -278,3 +278,63 @@ const extra = [
 
 // Qo'shimcha savollarni asosiy ro'yxatga qo'shamiz
 extra.forEach(function (item) { questions.push(item); });
+
+// ---------- Qo'shimcha savollar ----------
+questions.push(
+  // TARIX
+  { cat: "Tarix", q: "O'zbekiston mustaqillikka qaysi yilda erishgan?", options: ["1989", "1991", "1993", "1995"], answer: 1 },
+  { cat: "Tarix", q: "Mirzo Ulug'bek rasadxonasi qaysi shaharda joylashgan?", options: ["Buxoro", "Samarqand", "Xiva", "Toshkent"], answer: 1 },
+  { cat: "Tarix", q: "Ikkinchi jahon urushi qaysi yilda boshlangan?", options: ["1914", "1939", "1941", "1945"], answer: 1 },
+  { cat: "Tarix", q: "Ehromlar qaysi qadimiy davlat bilan mashhur?", options: ["Rim", "Yunoniston", "Qadimgi Misr", "Bobil"], answer: 2 },
+  { cat: "Tarix", q: "Kolumb Amerikaga qaysi yilda yetib borgan?", options: ["1453", "1492", "1517", "1607"], answer: 1 },
+  { cat: "Tarix", q: "Buyuk Ipak yo'li qaysi hududlarni bog'lagan?", options: ["Xitoy va Yevropa", "Hindiston va Afrika", "Rossiya va Yaponiya", "Amerika va Avstraliya"], answer: 0 },
+  { cat: "Tarix", q: "Algebra fani nomi kimning asari bilan bog'liq?", options: ["Ibn Sino", "Al-Xorazmiy", "Beruniy", "Farobiy"], answer: 1 },
+  { cat: "Tarix", q: "Ibn Sinoning mashhur tibbiyot kitobi qaysi?", options: ["Tib qonunlari", "Boburnoma", "Shohnoma", "Avesto"], answer: 0 },
+  { cat: "Tarix", q: "Zahiriddin Muhammad Bobur qaysi shaharda tug'ilgan?", options: ["Samarqand", "Andijon", "Qobul", "Dehli"], answer: 1 },
+  { cat: "Tarix", q: "Birinchi jahon urushi qaysi yilda boshlangan?", options: ["1905", "1914", "1918", "1923"], answer: 1 },
+  { cat: "Tarix", q: "Qadimgi Rim imperiyasining poytaxti qaysi shahar edi?", options: ["Afina", "Rim", "Istanbul", "Parij"], answer: 1 },
+  { cat: "Tarix", q: "Chingizxon qaysi xalq davlatini tuzgan?", options: ["Turklar", "Mo'g'ullar", "Arablar", "Forslar"], answer: 1 },
+  { cat: "Tarix", q: "Buyuk Fransuz inqilobi qaysi yilda boshlangan?", options: ["1689", "1776", "1789", "1815"], answer: 2 },
+  { cat: "Tarix", q: "O'zbekiston Konstitutsiyasi kuni qachon nishonlanadi?", options: ["1 sentabr", "8 dekabr", "31 avgust", "21 mart"], answer: 1 },
+  { cat: "Tarix", q: "Amir Temur davlatining poytaxti qaysi shahar edi?", options: ["Buxoro", "Samarqand", "Xiva", "Toshkent"], answer: 1 },
+  { cat: "Tarix", q: "Titanik kemasi qaysi yilda cho'kkan?", options: ["1905", "1912", "1920", "1931"], answer: 1 },
+
+  // GEOGRAFIYA
+  { cat: "Geografiya", q: "Eng katta qit'a qaysi?", options: ["Afrika", "Osiyo", "Shimoliy Amerika", "Yevropa"], answer: 1 },
+  { cat: "Geografiya", q: "Qozog'iston poytaxti qaysi shahar?", options: ["Olmaota", "Astana", "Bishkek", "Ashxobod"], answer: 1 },
+  { cat: "Geografiya", q: "Maydoni bo'yicha dunyodagi eng katta davlat qaysi?", options: ["Xitoy", "Kanada", "Rossiya", "AQSh"], answer: 2 },
+  { cat: "Geografiya", q: "Qoraqalpog'iston Respublikasining poytaxti qaysi?", options: ["Urganch", "Nukus", "Xiva", "Qarshi"], answer: 1 },
+  { cat: "Geografiya", q: "Qaysi davlat O'zbekiston bilan chegaradosh emas?", options: ["Tojikiston", "Afg'oniston", "Eron", "Turkmaniston"], answer: 2 },
+  { cat: "Geografiya", q: "Amazonka o'rmonlari qaysi qit'ada joylashgan?", options: ["Afrika", "Janubiy Amerika", "Osiyo", "Avstraliya"], answer: 1 },
+  { cat: "Geografiya", q: "Maydoni bo'yicha eng kichik qit'a qaysi?", options: ["Yevropa", "Avstraliya", "Antarktida", "Janubiy Amerika"], answer: 1 },
+  { cat: "Geografiya", q: "Parij qaysi davlatning poytaxti?", options: ["Italiya", "Ispaniya", "Fransiya", "Germaniya"], answer: 2 },
+  { cat: "Geografiya", q: "Sahroi Kabir qaysi qit'ada joylashgan?", options: ["Osiyo", "Afrika", "Avstraliya", "Janubiy Amerika"], answer: 1 },
+  { cat: "Geografiya", q: "Eng sovuq qit'a qaysi?", options: ["Osiyo", "Antarktida", "Yevropa", "Avstraliya"], answer: 1 },
+  { cat: "Geografiya", q: "Misr davlatining poytaxti qaysi shahar?", options: ["Iskandariya", "Qohira", "Tunis", "Rabot"], answer: 1 },
+  { cat: "Geografiya", q: "Toshkent shahri qaysi daryo vodiysida joylashgan?", options: ["Zarafshon", "Chirchiq", "Amudaryo", "Surxondaryo"], answer: 1 },
+
+  // FAN
+  { cat: "Fan", q: "Suvning kimyoviy formulasi qaysi?", options: ["CO2", "H2O", "O2", "NaCl"], answer: 1 },
+  { cat: "Fan", q: "Quyosh tizimidagi eng katta sayyora qaysi?", options: ["Saturn", "Yupiter", "Neptun", "Yer"], answer: 1 },
+  { cat: "Fan", q: "Yorug'lik tezligi taxminan qancha?", options: ["3 000 km/s", "30 000 km/s", "300 000 km/s", "3 000 000 km/s"], answer: 2 },
+  { cat: "Fan", q: "Oltinning kimyoviy belgisi qaysi?", options: ["Ag", "Au", "Fe", "Go"], answer: 1 },
+  { cat: "Fan", q: "Butun olam tortishish qonunini kim ta'riflagan?", options: ["Eynshteyn", "Nyuton", "Galiley", "Tesla"], answer: 1 },
+  { cat: "Fan", q: "Qonda kislorodni tashuvchi hujayralar qaysi?", options: ["Leykotsitlar", "Eritrotsitlar", "Trombotsitlar", "Neyronlar"], answer: 1 },
+  { cat: "Fan", q: "Kabisa bo'lmagan yilda necha kun bor?", options: ["360", "365", "366", "370"], answer: 1 },
+  { cat: "Fan", q: "Yer Quyosh atrofida qancha vaqtda to'liq aylanadi?", options: ["1 kun", "1 oy", "1 yil", "10 yil"], answer: 2 },
+  { cat: "Fan", q: "Qaysi hayvon sutemizuvchi?", options: ["Akula", "Delfin", "Qurbaqa", "Timsoh"], answer: 1 },
+  { cat: "Fan", q: "Tovush qaysi muhitda eng tez tarqaladi?", options: ["Havoda", "Suvda", "Qattiq jismda", "Vakuumda"], answer: 2 },
+  { cat: "Fan", q: "Odamning nechta asosiy sezgi a'zosi bor?", options: ["3", "4", "5", "6"], answer: 2 },
+  { cat: "Fan", q: "Oddiy bosimda suv necha gradusda qaynaydi?", options: ["90", "100", "110", "120"], answer: 1 },
+
+  // TEXNOLOGIYA
+  { cat: "Texnologiya", q: "WWW qisqartmasi nimani anglatadi?", options: ["World Wide Web", "Wide World Web", "Web World Wide", "World Web Wide"], answer: 0 },
+  { cat: "Texnologiya", q: "Kompyuterda CPU nima?", options: ["Operativ xotira", "Markaziy protsessor", "Videokarta", "Quvvat bloki"], answer: 1 },
+  { cat: "Texnologiya", q: "Wi-Fi nima?", options: ["Simsiz tarmoq texnologiyasi", "Dasturlash tili", "Antivirus", "Operatsion tizim"], answer: 0 },
+  { cat: "Texnologiya", q: "RAM nima?", options: ["Doimiy xotira", "Operativ xotira", "Protsessor", "Monitor"], answer: 1 },
+  { cat: "Texnologiya", q: "USB qisqartmasi nimani anglatadi?", options: ["Universal Serial Bus", "United System Bus", "Universal Signal Box", "Unique Serial Byte"], answer: 0 },
+  { cat: "Texnologiya", q: "Brauzerda veb-sahifalarni jonlantiradigan dasturlash tili qaysi?", options: ["C++", "JavaScript", "Pascal", "Assembler"], answer: 1 },
+  { cat: "Texnologiya", q: "Bluetooth nima uchun ishlatiladi?", options: ["Qisqa masofada simsiz aloqa uchun", "Elektr quvvatlash uchun", "Video yozish uchun", "Fayl siqish uchun"], answer: 0 },
+  { cat: "Texnologiya", q: "Bulutli saqlash (cloud) nima?", options: ["Ob-havo prognozi", "Ma'lumotni internetdagi serverlarda saqlash", "Yangi telefon turi", "Antivirus dasturi"], answer: 1 },
+  { cat: "Texnologiya", q: "Elektron pochta manzilida qaysi belgi albatta bo'ladi?", options: ["#", "@", "%", "&"], answer: 1 }
+);
