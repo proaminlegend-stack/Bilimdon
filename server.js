@@ -44,9 +44,8 @@ async function dbInit() {
   await pool.query("ALTER TABLE scores ADD COLUMN IF NOT EXISTS avatar TEXT NOT NULL DEFAULT ''");
 }
 
-async function dbTop10(category) {
-  const today = "(created_at AT TIME ZONE 'Asia/Tashkent')::date = " +
-                "(now() AT TIME ZONE 'Asia/Tashkent')::date";
+async function dbTop10(category, period) {
+  const today = period === "week" ? "created_at > now() - interval '7 days'" : "(created_at AT TIME ZONE 'Asia/Tashkent')::date = (now() AT TIME ZONE 'Asia/Tashkent')::date";
   const order = "ORDER BY score::float / total DESC, total DESC, created_at ASC LIMIT 10";
   const cols = "SELECT name, avatar, category, score, total FROM scores";
 
@@ -99,9 +98,9 @@ function prune() {
 }
 prune();
 
-function fileTop10(category) {
+function fileTop10(category, period) {
   const today = dayKey(Date.now());
-  let list = sorted().filter(s => dayKey(s.time) === today);
+  let list = sorted().filter(s => period === "week" ? Date.now() - s.time < KEEP_MS : dayKey(s.time) === today);
   if (category) {
     list = list.filter(s => s.category === category);
   }
@@ -111,8 +110,8 @@ function fileTop10(category) {
 }
 
 // ---------- Umumiy funksiyalar ----------
-async function getTop10(category) {
-  return pool ? dbTop10(category) : fileTop10(category);
+async function getTop10(category, period) {
+  return pool ? dbTop10(category, period) : fileTop10(category, period);
 }
 
 async function addScore(name, avatar, category, score, total) {
@@ -129,7 +128,8 @@ async function addScore(name, avatar, category, score, total) {
 app.get("/api/scores", async (req, res) => {
   try {
     const category = String(req.query.category || "").trim().slice(0, 20);
-    res.json(await getTop10(category));
+    const period = req.query.period === "week" ? "week" : "day";
+    res.json(await getTop10(category, period));
   } catch (e) {
     console.error("O'qishda xato:", e.message);
     res.status(500).json({ error: "Server xatosi" });

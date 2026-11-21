@@ -22,6 +22,8 @@ const resultBoardEl = document.getElementById("result-board");
 const mainBoardEl = document.getElementById("main-board");
 const resultTabsEl = document.getElementById("result-tabs");
 const mainTabsEl = document.getElementById("main-tabs");
+const mainPeriodEl = document.getElementById("main-period");
+const resultPeriodEl = document.getElementById("result-period");
 
 let quiz = [];
 let current = 0;
@@ -31,6 +33,7 @@ let timeLeft = TIME_LIMIT;
 let timerId = null;
 let playerName = "Mehmon";
 let playerCategory = "Aralash";
+let boardPeriod = "day";
 const AVATARS = ["🦁","🐯","🐼","🦊","🐺","🦅","🐬","🐲","🚀","⚡","👑","🧠","🎯","🔥","🌟","🤖","🐱","🐶"];
 let playerAvatar = AVATARS[0];
 try {
@@ -254,12 +257,25 @@ function buildTabs(tabsEl, active, onSelect) {
   });
 }
 
+function buildPeriod(el, onChange) {
+  el.innerHTML = "";
+  [["day", "Bugun"], ["week", "Hafta"]].forEach(([key, label]) => {
+    const b = document.createElement("button");
+    b.className = "tab" + (key === boardPeriod ? " active" : "");
+    b.textContent = label;
+    b.addEventListener("click", () => { boardPeriod = key; onChange(); });
+    el.appendChild(b);
+  });
+}
+
 // Tanlangan fan bo'yicha reytingni yuklash
 async function loadBoard(boardEl, tabsEl, category) {
+  const periodEl = tabsEl === mainTabsEl ? mainPeriodEl : resultPeriodEl;
+  buildPeriod(periodEl, () => loadBoard(boardEl, tabsEl, category));
   buildTabs(tabsEl, category, name => loadBoard(boardEl, tabsEl, name));
   boardEl.innerHTML = "";
   try {
-    const res = await fetch("/api/scores?category=" + encodeURIComponent(category));
+    const res = await fetch("/api/scores?category=" + encodeURIComponent(category) + "&period=" + boardPeriod);
     if (!res.ok) throw new Error("server xatosi");
     renderBoard(boardEl, await res.json());
   } catch (e) {
@@ -268,6 +284,8 @@ async function loadBoard(boardEl, tabsEl, category) {
 }
 
 async function sendScore() {
+  boardPeriod = "day";
+  buildPeriod(resultPeriodEl, () => loadBoard(resultBoardEl, resultTabsEl, playerCategory));
   resultBoardEl.innerHTML = "";
   buildTabs(resultTabsEl, playerCategory, name => loadBoard(resultBoardEl, resultTabsEl, name));
   try {
@@ -290,6 +308,7 @@ async function sendScore() {
 }
 
 async function openBoard() {
+  boardPeriod = "day";
   startScreen.classList.add("hidden");
   boardScreen.classList.remove("hidden");
   await loadBoard(mainBoardEl, mainTabsEl, playerCategory);
