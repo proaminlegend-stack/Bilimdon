@@ -338,3 +338,51 @@ questions.push(
   { cat: "Texnologiya", q: "Bulutli saqlash (cloud) nima?", options: ["Ob-havo prognozi", "Ma'lumotni internetdagi serverlarda saqlash", "Yangi telefon turi", "Antivirus dasturi"], answer: 1 },
   { cat: "Texnologiya", q: "Elektron pochta manzilida qaysi belgi albatta bo'ladi?", options: ["#", "@", "%", "&"], answer: 1 }
 );
+
+// ---------- Yangi fanlar: Sport va Adabiyot ----------
+CATEGORIES.push("Sport", "Adabiyot");
+questions.push(
+  // SPORT
+  { cat: "Sport", q: "Futbol jamoasi maydonda nechta o'yinchi bilan o'ynaydi?", options: ["9", "10", "11", "12"], answer: 2 },
+  { cat: "Sport", q: "Olimpiya o'yinlari necha yilda bir marta o'tkaziladi?", options: ["4", "2", "3", "5"], answer: 0 },
+  { cat: "Sport", q: "Olimpiya bayrog'ida nechta halqa bor?", options: ["4", "5", "6", "7"], answer: 1 },
+  { cat: "Sport", q: "2022-yilgi futbol bo'yicha jahon chempionatini qaysi jamoa yutgan?", options: ["Fransiya", "Braziliya", "Xorvatiya", "Argentina"], answer: 3 },
+  { cat: "Sport", q: "2022-yilgi futbol bo'yicha jahon chempionati qaysi davlatda o'tgan?", options: ["Rossiya", "Qatar", "Braziliya", "Yaponiya"], answer: 1 },
+  { cat: "Sport", q: "Basketbol halqasi yer sathidan qancha balandlikda joylashgan?", options: ["2,5 metr", "3,05 metr", "3,5 metr", "4 metr"], answer: 1 },
+  { cat: "Sport", q: "Uimbldon tennis turniri qaysi shaharda o'tkaziladi?", options: ["Parij", "Nyu-York", "Melburn", "London"], answer: 3 },
+  { cat: "Sport", q: "Shaxmat taxtasida nechta katak bor?", options: ["32", "48", "64", "81"], answer: 2 },
+  { cat: "Sport", q: "Marafon masofasi taxminan qancha?", options: ["21 km", "32 km", "42 km", "50 km"], answer: 2 },
+  { cat: "Sport", q: "Qaysi sport turida shayba ishlatiladi?", options: ["Xokkey", "Futbol", "Tennis", "Voleybol"], answer: 0 },
+  { cat: "Sport", q: "Voleybol jamoasi maydonda nechta o'yinchi bilan o'ynaydi?", options: ["5", "6", "7", "8"], answer: 1 },
+  { cat: "Sport", q: "Lionel Messi qaysi davlat terma jamoasida o'ynaydi?", options: ["Braziliya", "Ispaniya", "Argentina", "Urugvay"], answer: 2 },
+  { cat: "Sport", q: "Kristianu Ronaldu qaysi davlat terma jamoasida o'ynaydi?", options: ["Portugaliya", "Fransiya", "Italiya", "Ispaniya"], answer: 0 },
+  { cat: "Sport", q: "Qadimgi Olimpiya o'yinlari qaysi davlatda boshlangan?", options: ["Rim", "Misr", "Xitoy", "Yunoniston"], answer: 3 },
+  { cat: "Sport", q: "Sumo qaysi davlatning milliy kurash turi?", options: ["Xitoy", "Yaponiya", "Koreya", "Mo'g'uliston"], answer: 1 },
+  { cat: "Sport", q: "Futbol o'yini qo'shimcha vaqtsiz necha daqiqa davom etadi?", options: ["60", "80", "90", "120"], answer: 2 },
+  { cat: "Sport", q: "Ping-pong qaysi sport turining boshqa nomi?", options: ["Stol tennisi", "Badminton", "Skvosh", "Kriket"], answer: 0 },
+  { cat: "Sport", q: "Nodirbek Abdusattorov qaysi sport turida mashhur?", options: ["Shaxmat", "Boks", "Futbol", "Suzish"], answer: 0 },
+  { cat: "Sport", q: "2024-yilgi Yozgi Olimpiya o'yinlari qaysi shaharda o'tgan?", options: ["Tokio", "Parij", "Los-Anjeles", "London"], answer: 1 },
+  { cat: "Sport", q: "Tennisda 15 va 30 dan keyingi ochko qaysi?", options: ["35", "40", "45", "50"], answer: 1 },
+  { cat: "Sport", q: "Basketbol jamoasi maydonda nechta o'yinchi bilan o'ynaydi?", options: ["4", "5", "6", "7"], answer: 1 },
+  { cat: "Sport", q: "Tur de Frans qaysi sport turidagi mashhur musobaqa?", options: ["Velosiped poygasi", "Suzish", "Marafon", "Avtopoyga"], answer: 0 },
+
+  // ADABIYOT
+  { cat: "Adabiyot", q: "\"O'tkan kunlar\" romanining muallifi kim?", options: ["Cho'lpon", "G'afur G'ulom", "Abdulla Qodiriy", "Oybek"], answer: 2 },
+  { cat: "Adabiyot", q: "\"Mehrobdan chayon\" romanining muallifi kim?", options: ["Oybek", "Abdulla Qodiriy", "Cho'lpon", "Abdulla Qahhor"], answer: 1 },
+  { cat: "Adabiyot", q: "\"Sariq devni minib\" asarining muallifi kim?", options: ["Xudoyberdi To'xtaboyev", "Erkin Vohidov", "Said Ahmad", "Pirimqul Qodirov"], answer: 0 },
+  { cat: "Adabiyot", q: "\"Shum bola\" qissasining muallifi kim?", options: ["Hamza", "G'afur G'ulom", "Oybek", "Zulfiya"], answer: 1 },
+  { cat: "Adabiyot", q: "\"Kecha va kunduz\" romanining muallifi kim?", options: ["Cho'lpon", "Oybek", "Abdulla Qodiriy", "Hamid Olimjon"], answer: 0 },
+  { cat: "Adabiyot", q: "\"Hamlet\" tragediyasining muallifi kim?", options: ["Dante", "Gyote", "Shekspir", "Servantes"], answer: 2 },
+  { cat: "Adabiyot", q: "\"Urush va tinchlik\" romanining muallifi kim?", options: ["Lev Tolstoy", "Pushkin", "Chexov", "Gogol"], answer: 0 },
+  { cat: "Adabiyot", q: "\"Jinoyat va jazo\" romanining muallifi kim?", options: ["Tolstoy", "Turgenev", "Dostoyevskiy", "Gorkiy"], answer: 2 },
+  { cat: "Adabiyot", q: "\"Kichkina shahzoda\" asarining muallifi kim?", options: ["Jyul Vern", "Antuan de Sent-Ekzyuperi", "Viktor Gyugo", "Aleksandr Dyuma"], answer: 1 },
+  { cat: "Adabiyot", q: "\"Alpomish\" qanday janrdagi asar?", options: ["Roman", "Doston", "Hikoya", "Drama"], answer: 1 },
+  { cat: "Adabiyot", q: "\"Garri Potter\" kitoblarining muallifi kim?", options: ["Dj. K. Rouling", "Dj. R. R. Tolkin", "K. S. Lyuis", "Rodal Dal"], answer: 0 },
+  { cat: "Adabiyot", q: "\"Robinzon Kruzo\" romanining muallifi kim?", options: ["Jonatan Svift", "Daniel Defo", "Mark Tven", "Charlz Dikkens"], answer: 1 },
+  { cat: "Adabiyot", q: "\"O'zbekiston\" davlat madhiyasi so'zlari muallifi kim?", options: ["Erkin Vohidov", "Abdulla Oripov", "Muhammad Yusuf", "Zulfiya"], answer: 1 },
+  { cat: "Adabiyot", q: "\"Shohnoma\" asarining muallifi kim?", options: ["Firdavsiy", "Hofiz", "Sa'diy", "Umar Xayyom"], answer: 0 },
+  { cat: "Adabiyot", q: "Alisher Navoiy qaysi yilda tug'ilgan?", options: ["1441", "1336", "1483", "1500"], answer: 0 },
+  { cat: "Adabiyot", q: "\"Yevgeniy Onegin\" asarining muallifi kim?", options: ["Lermontov", "Pushkin", "Gogol", "Dostoyevskiy"], answer: 1 },
+  { cat: "Adabiyot", q: "\"Gulliverning sayohatlari\" asarining muallifi kim?", options: ["Daniel Defo", "Jyul Vern", "Jonatan Svift", "Mark Tven"], answer: 2 },
+  { cat: "Adabiyot", q: "\"Ming bir kecha\" qaysi xalqning mashhur ertaklar to'plami?", options: ["Arab xalqi", "Rus xalqi", "Xitoy xalqi", "Yunon xalqi"], answer: 0 }
+);
